@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: newsbias
+  datasource:
+    url: jdbc:postgresql://localhost:5433/newsbias
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+app:
+  jwt:
+    # A secure base64 encoded HS256 key (minimum 256 bits)
+    secret: dGhpc2lzYW1pbmltdW0yNTZiaXRoZXhzdXBlcnNlY3JldGtleWZvcm5ld3NiaWFzZGV0ZWN0b3JhcHBsaWNhdGlvbg==
+    expiration-ms: 86400000 # 24 hours
+  ai-service:
+    url: http://localhost:8000
